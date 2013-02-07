@@ -4,8 +4,7 @@ Cinnamon.js takes some of the pain out of naming things. It’s a script that al
 
 ## Usage
 
-Add cinnamon.js just before your body’s end tag. Then wrap your element of choice (span tags are recommended) and give it a data-cinnamon attribute with a comma-separated list of synonyms as its value. If you wrap an image, its alt text will also be used, as in the image above.
-
+Add cinnamon.js just before your body’s end tag. Then wrap your element of choice (span tags are recommended) and give it a data-cinnamon attribute with a comma-separated list of synonyms as its value. If you wrap an image, its alt text will also be used.
 Here’s an example:
 
 		<span data-cinnamon="Azure,Cerulean,Cobalt">Blue</span>
