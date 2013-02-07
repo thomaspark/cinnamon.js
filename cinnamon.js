@@ -1,5 +1,5 @@
 // Cinnamon.js
-// Version: 1.0.0
+// Version: 1.0.1
 // Author: Thomas Park
 // License: MIT
 
@@ -47,6 +47,7 @@
         for (var j = 0; j < synonyms.length; j++) {
             var e = document.createElement('span');
             e.className = 'cinnamon';
+            e.setAttribute('aria-hidden', 'true');
 
             // IE8 doesn't support textContent
             if ((e.textContent) && (typeof (e.textContent) !== "undefined")) {
