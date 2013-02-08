@@ -1,5 +1,5 @@
 // Cinnamon.js
-// Version: 1.0.1
+// Version: 1.0.2
 // Author: Thomas Park
 // License: MIT
 
@@ -50,7 +50,7 @@
             e.setAttribute('aria-hidden', 'true');
 
             // IE8 doesn't support textContent
-            if ((e.textContent) && (typeof (e.textContent) !== "undefined")) {
+            if (typeof (e.textContent) !== "undefined") {
                 e.textContent = synonyms[j];
             } else {
                 e.innerText = synonyms[j];
