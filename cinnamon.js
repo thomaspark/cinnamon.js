@@ -1,5 +1,5 @@
 // Cinnamon.js
-// Version: 1.0.2
+// Version: 1.0.3
 // Author: Thomas Park
 // License: MIT
 
@@ -37,7 +37,7 @@
     for (var i = 0; i < cinnamons.length; i++) {
 
         var cinnamon = cinnamons[i],
-            synonyms = cinnamon.getAttribute('data-cinnamon').split(','),
+            synonyms = cinnamon.getAttribute('data-cinnamon').replace(',', ' ,').split(','),
             image = cinnamon.getElementsByTagName('img')[0];
 
         if (image && image.getAttribute('alt')) {
