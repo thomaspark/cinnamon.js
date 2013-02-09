@@ -2,7 +2,7 @@
 
 Cinnamon.js takes some of the pain out of naming things. It’s a script that allows users to find links, images, and other content by their synonyms, using the browser’s built-in Find function.
 
-![Cinnamon.js screenshot](cinnamon.js.png)
+![Cinnamon.js screenshot](screenshot.png)
 
 ## Usage
 
