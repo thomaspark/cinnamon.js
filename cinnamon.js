@@ -1,5 +1,5 @@
 // Cinnamon.js
-// Version: 1.0.3
+// Version: 1.0.4
 // Author: Thomas Park
 // License: MIT
 
@@ -7,11 +7,15 @@
 
     // Add styles
     var overflow = 'hidden',
-        fontsize = '999px';
+        fontsize = '999px',
+        browser;
 
-    // Alternate styles for Safari
     if ((navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1)) {
+        browser = 'safari';
         overflow = 'visible';
+        fontsize = 'inherit';
+    } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
+        browser = 'firefox';
         fontsize = 'inherit';
     }
 
@@ -49,7 +53,10 @@
             e.className = 'cinnamon';
             e.setAttribute('aria-hidden', 'true');
 
-            // IE8 doesn't support textContent
+            if (browser == 'firefox' && image) {
+                e.style.fontSize = image.height + 10 + 'px';
+            }
+
             if (typeof (e.textContent) !== "undefined") {
                 e.textContent = synonyms[j];
             } else {
