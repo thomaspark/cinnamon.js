@@ -1,5 +1,5 @@
 // Cinnamon.js
-// Version: 1.0.4
+// Version: 1.0.5
 // Author: Thomas Park
 // License: MIT
 
@@ -22,7 +22,7 @@
     var head = document.head || document.getElementsByTagName('head')[0],
         style = document.createElement('style'),
         css = '[data-cinnamon] { position: relative; display: inline-block; } \
-.cinnamon { z-index: -1; position: absolute; top: 0; left: 0; display: inline-block; height: 100%; width: 100%; overflow: ' + overflow + '; color: rgba(0,0,0,0); font-size: ' + fontsize + '; } \
+.cinnamon { z-index: -1; position: absolute; top: 0; left: 0; display: inline-block; height: 100%; width: 100%; overflow: ' + overflow + '; color: transparent; font-size: ' + fontsize + '; } \
 @media all and (device-width: 768px) and (device-height: 1024px) { .cinnamon { z-index: 1; opacity: 0.25; } }';
 
     style.type = 'text/css';
@@ -41,7 +41,7 @@
     for (var i = 0; i < cinnamons.length; i++) {
 
         var cinnamon = cinnamons[i],
-            synonyms = cinnamon.getAttribute('data-cinnamon').replace(',', ' ,').split(','),
+            synonyms = cinnamon.getAttribute('data-cinnamon').split(','),
             image = cinnamon.getElementsByTagName('img')[0];
 
         if (image && image.getAttribute('alt')) {
@@ -58,12 +58,12 @@
             }
 
             if (typeof (e.textContent) !== "undefined") {
-                e.textContent = synonyms[j];
+                e.textContent = synonyms[j] + ' ';
             } else {
-                e.innerText = synonyms[j];
+                e.innerText = synonyms[j] + ' ';
             }
 
-            cinnamon.appendChild(e);
+            cinnamon.insertBefore(e, cinnamon.firstChild);
         }
     }
 
