@@ -7,16 +7,11 @@
 
     // Add styles
     var overflow = 'hidden',
-        fontsize = '999px',
         browser;
 
     if ((navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1)) {
         browser = 'safari';
         overflow = 'visible';
-        fontsize = 'inherit';
-    } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
-        browser = 'firefox';
-        fontsize = 'inherit';
     }
 
     var head = document.head || document.getElementsByTagName('head')[0],
@@ -53,8 +48,8 @@
             e.className = 'cinnamon';
             e.setAttribute('aria-hidden', 'true');
 
-            if (browser == 'firefox' && image) {
-                e.style.fontSize = image.height + 10 + 'px';
+            if (image) {
+                e.style.lineHeight = image.height + 10 + 'px';
             }
 
             if (typeof (e.textContent) !== "undefined") {
