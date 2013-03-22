@@ -1,16 +1,25 @@
 # Cinnamon.js
 
-Cinnamon.js takes some of the pain out of naming things. It’s a script that allows users to find links, images, and other content by their synonyms, using the browser’s built-in Find function.
+Cinnamon.js takes some of the pain out of naming things.
+It’s a script that allows users to find links, images, and other content
+by their synonyms, using the browser’s built-in Find function.
 
 ![Cinnamon.js screenshot](screenshot.png)
 
 ## Usage
 
-Add cinnamon.js just before your body’s end tag.
+Add cinnamon.css inside the head of your page.
+
+    <link rel="stylesheet" href="cinnamon.css" />
+
+and cinnamon.js <strong>just before your body’s end tag</strong.
 
 	<script src="cinnamon.min.js"></script>
 
-Then wrap your element of choice (span tags are recommended) and give it a data-cinnamon attribute with a comma-separated list of synonyms as its value. If you wrap an image, its alt text will also be used.
+Then wrap your element of choice (span tags are recommended)
+and give it a data-cinnamon attribute
+with a comma-separated list of synonyms as its value.
+If you wrap an image, its alt text will also be used.
 
 	<span data-cinnamon="Azure,Cerulean,Cobalt">Blue</span>
 

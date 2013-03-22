@@ -21,10 +21,8 @@
 
     var head = document.head || document.getElementsByTagName('head')[0],
         style = document.createElement('style'),
-        css = '[data-cinnamon] { position: relative; display: inline-block; z-index: 1; } \
-.cinnamon { z-index: -1; position: absolute; top: 0; left: 0; display: inline-block; height: 100%; width: 100%; overflow: ' + overflow + '; color: transparent; font-size: ' + fontsize + '; } \
-@media all and (device-width: 768px) and (device-height: 1024px) { .cinnamon { z-index: 1; opacity: 0.25; } }';
-
+        css = '.cinnamon {overflow: ' + overflow + '; font-size: ' + fontsize + '; }';
+        
     style.type = 'text/css';
 
     if (style.styleSheet) {
