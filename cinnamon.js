@@ -1,5 +1,5 @@
 // Cinnamon.js
-// Version: 1.0.6
+// Version: 1.1.0
 // Author: Thomas Park
 // License: MIT
 

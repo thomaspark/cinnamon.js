@@ -44,4 +44,9 @@ Thomas Park
 
 Copyright 2013 Thomas Park.
 
-Released under the MIT License.
+Code: Released under the MIT License,
+Font AdobeBlank: Released under SIL Open Font License, Version 1.1
+
+## Contributors
+
+* Michael Kutschall (Caldazar) <michaelkutschall@chaotic-good.de>
