@@ -3,8 +3,9 @@
 // Author: Thomas Park
 // License: MIT
 
-(function () {
+var objAllSynonyms= {};
 
+(function () {
     // Add styles
     // get path to cinnamon's folder to find the font file
     var scripts = document.getElementsByTagName("script"),
@@ -130,7 +131,11 @@
             cssSynonym += '    letter-spacing: ' + Math.ceil(intPixPerSpace) + 'px;' + '\n';
             cssSynonym += '}' + '\n\n';
 
+            // Add synonyms to the "global" object
+            // in order to remove them later from any C&P content
+            objAllSynonyms[synonyms[j]]= 0;
 
+/*
             console.log(
               '-----------------------------------------------------------------\n'
               + 'Calculation of letter-spacing for synonyms of \n\n  ' + cinnamon.textContent + '\n\n'
@@ -142,9 +147,10 @@
               + ' = ' + intPixPerSpace + ' | remainder ' + intRemainderPixel + '\n'
               + '-----------------------------------------------------------------\n'
           );
-
+*/
         }
     }
+    document.oncopy=removeSynonymsInCopy;
 
     // Last but not least,
     // create the stylesheet with all the styles we accumulated in 'cssSynonym'.
@@ -198,6 +204,45 @@ function getRandomID(lenString, prefix)
 		strRandom += chars.substring(rnum,rnum+1);
 	}
 	return prefix + strRandom;
+}
+
+/**
+ * On copy & paste, this removes the synonyms from the copied text
+ * (Inspired by
+ * http://bavotasan.com/2010/add-a-copyright-notice-to-copied-text/ and
+ * http://dreaminginjavascript.wordpress.com/2008/08/22/eliminating-duplicates/
+ * )
+ *
+ * @since v1.1.0
+ *
+ * @returns {Void}
+ */
+function removeSynonymsInCopy()
+{
+	var body_element = document.getElementsByTagName('body')[0];
+	var selection;
+	selection = window.getSelection();
+    var copytext= new String(selection);
+
+    // Remove all Object keys from the copied text
+    for (synonym in objAllSynonyms)
+    {
+      var synonym = synonym;
+      //console.log(synonym);
+      copytext= copytext.replace(synonym, "");
+    }
+
+    // Not quite sure what is done here.
+    // The actual selection gets bypassed by a fake div, I guess.
+	var newdiv = document.createElement('div');
+	newdiv.style.position='absolute';
+	newdiv.style.left='-99999px';
+	body_element.appendChild(newdiv);
+	newdiv.innerHTML = copytext;
+	selection.selectAllChildren(newdiv);
+	window.setTimeout(function() {
+		body_element.removeChild(newdiv);
+	},0);
 }
 
 /*
